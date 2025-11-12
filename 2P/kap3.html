@@ -167,8 +167,8 @@
           <span class="badge">Konsumprisindeks</span>
           <span class="q-text">1) Basisåret har KPI = 100. Prisnivået har økt med 15% siden basisåret. Hva er KPI nå?</span>
         </div>
-        <input class="numeric" type="text" placeholder="Skriv indeksen (f.eks. 115)" />
-        <div class="helper">KPI = 100 · (1 + 0.15)</div>
+        <input class="numeric" type="text" placeholder="Skriv indeksen (f.eks. 112)" />
+        <div class="helper"> </div>
       </div>
 
       <div class="question" data-topic="kpi" data-id="q2" data-type="numeric" data-answer="6.52">
@@ -176,8 +176,8 @@
           <span class="badge">KPI og prisvekst</span>
           <span class="q-text">2) KPI øker fra 123,0 til 131,0. Hvor mange prosent økning er dette? (to desimaler)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 6.50 eller 6.50%" />
-        <div class="helper">Prosent = (131 - 123) / 123 · 100%</div>
+        <input class="numeric" type="text" placeholder="f.eks. 6.70 eller 6.70%" />
+        <div class="helper">Prosent = endring / starter med · 100%</div>
       </div>
 
       <!-- Kroneverdi -->
@@ -186,8 +186,8 @@
           <span class="badge">Kroneverdi</span>
           <span class="q-text">3) Når KPI går fra 100 til 125, hva er kroneverdien relativt til basisåret?</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 0.8" />
-        <div class="helper">Kroneverdi = 100 / KPI = 100/125 = 0.8</div>
+        <input class="numeric" type="text" placeholder="f.eks. 0.7" />
+        <div class="helper">Kroneverdi = 100 / KPI </div>
       </div>
 
       <div class="question" data-topic="kroneverdi" data-id="q4" data-type="numeric" data-answer="625">
@@ -195,7 +195,7 @@
           <span class="badge">KPI og pris</span>
           <span class="q-text">4) En vare kostet 500 kr i basisåret (KPI 100). Når KPI er 125, hva er forventet pris?</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 625" />
+        <input class="numeric" type="text" placeholder="f.eks. 125" />
         <div class="helper">Pris nå ≈ pris basis · (KPI nå / KPI basis)</div>
       </div>
 
@@ -205,8 +205,8 @@
           <span class="badge">Reallønn</span>
           <span class="q-text">5) Nominell lønnsvekst er 4% mens KPI-vekst er 2%. Hvor mye øker reallønna? (to desimaler, i prosentpoeng)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 1.96 eller 1.96%" />
-        <div class="helper">Reallønn vekst ≈ (1.04 / 1.02 - 1) · 100%</div>
+        <input class="numeric" type="text" placeholder="f.eks. 1.67 eller 1.67%" />
+        <div class="helper"> </div>
       </div>
 
       <div class="question" data-topic="reallonn" data-id="q6" data-type="numeric" data-answer="2.94">
@@ -214,8 +214,8 @@
           <span class="badge">Reallønn</span>
           <span class="q-text">6) Lønna øker 5%, KPI øker 2%. Hvor mye øker reallønna? (to desimaler, i %)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 2.94 eller 2.94%" />
-        <div class="helper">Reallønn vekst = (1.05 / 1.02 - 1) · 100%</div>
+        <input class="numeric" type="text" placeholder="f.eks. 2.67 eller 2.67%" />
+        <div class="helper"> </div>
       </div>
 
       <!-- Bruttolønn / Nettolønn -->
@@ -224,8 +224,8 @@
           <span class="badge">Bruttolønn</span>
           <span class="q-text">7) En person har månedslønn 28 333 kr. Hva er årlig bruttolønn? (12 måneder)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 340000" />
-        <div class="helper">Brutto per år = månedslønn · 12</div>
+        <input class="numeric" type="text" placeholder="f.eks. 670000" />
+        <div class="helper">Rund av </div>
       </div>
 
       <div class="question" data-topic="lonn" data-id="q8" data-type="numeric" data-answer="268000">
@@ -233,7 +233,7 @@
           <span class="badge">Nettolønn</span>
           <span class="q-text">8) Årlig bruttolønn er 340 000 kr. Skatt er 21.2%. Hva er nettolønn per år? (avrund hele kr)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 268000" />
+        <input class="numeric" type="text" placeholder="f.eks. 267000" />
         <div class="helper">Netto ≈ brutto · (1 - skatteprosent)</div>
       </div>
 
@@ -243,8 +243,8 @@
           <span class="badge">Sparing</span>
           <span class="q-text">9) Du setter inn 1 000 kr på sparekonto med 10% årlig rente. Hvor mye har du etter 2 år? (to desimaler)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 1210.00" />
-        <div class="helper">Sluttverdi = 1000 · 1.10^2</div>
+        <input class="numeric" type="text" placeholder="f.eks. 1270.00" />
+        <div class="helper">Sluttverdi = 1000 · v^2</div>
       </div>
 
       <div class="question" data-topic="sparing" data-id="q10" data-type="numeric" data-answer="24000">
@@ -252,7 +252,7 @@
           <span class="badge">Sparing, fast beløp</span>
           <span class="q-text">10) Du sparer 2 000 kr hver måned uten rente. Hvor mye har du etter 12 måneder?</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 24000" />
+        <input class="numeric" type="text" placeholder="f.eks. 27000" />
         <div class="helper">Sum = 2000 · 12 (uten rente)</div>
       </div>
 
@@ -276,8 +276,8 @@
           <span class="badge">Lån</span>
           <span class="q-text">12) Du låner 50 000 kr med 5% årlig rente, ingen avdrag første året. Hvor mye skylder du etter 1 år?</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 52500" />
-        <div class="helper">Skyld = 50000 · 1.05</div>
+        <input class="numeric" type="text" placeholder="f.eks. 52600" />
+        <div class="helper">Skyld = beløp · v</div>
       </div>
 
       <div class="actions">
