@@ -53,112 +53,100 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // Hjelpefunksjoner
-    function formatDateNo(d){ const dd=String(d.getDate()).padStart(2,'0'); const mm=String(d.getMonth()+1).padStart(2,'0'); const yyyy=d.getFullYear(); return `${dd}.${mm}.${yyyy}`; }
-    function todaySeed(d){ return d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate(); }
-    // Enkel deterministisk RNG basert på dagens dato (mulberry32-lignende)
-    function rngFromSeed(seed){ let t = seed + 0x6D2B79F5; return function(){ t |= 0; t = (t + 0x6D2B79F5) | 0; let r = Math.imul(t ^ t >>> 15, 1 | t); r ^= r + Math.imul(r ^ r >>> 7, 61 | r); return ((r ^ r >>> 14) >>> 0) / 4294967296; }; }
-    function pick(arr, rnd){ return arr[Math.floor(rnd()*arr.length)]; }
-
-    const today = new Date();
-    document.getElementById('date').textContent = `Dato: ${formatDateNo(today)}`;
-
-    const month = today.getMonth() + 1; // 1-12
-    const vinter = (month >= 11 || month <= 4); // nov–apr inkl.
-
-    // Aktivitetspool: langrenn bare om vinter
-    const aktiviteter = vinter ? ['Langrenn', 'Løping', 'Sykling'] : ['Løping', 'Sykling'];
-
-    const typer = ['Langtur', 'Intervaller', 'Restitusjon'];
-
-    // Intensitetsnivåer per type (guidelines)
-    const intensiteter = {
-      Langtur: ['Lav', 'Moderat'],
-      Intervaller: ['Moderat–høy', 'Høy'],
-      Restitusjon: ['Svært lav']
+<script>
+  // Hjelpefunksjoner
+  function formatDateNo(d){ const dd=String(d.getDate()).padStart(2,'0'); const mm=String(d.getMonth()+1).padStart(2,'0'); const yyyy=d.getFullYear(); return `${dd}.${mm}.${yyyy}`; }
+  function todaySeed(d){ return d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate(); }
+  // Enkel deterministisk RNG basert på dagens dato
+  function rngFromSeed(seed){
+    let t = seed + 0x6D2B79F5;
+    return function(){
+      t |= 0;
+      t = (t + 0x6D2B79F5) | 0;
+      let r = Math.imul(t ^ t >>> 15, 1 | t);
+      r ^= r + Math.imul(r ^ r >>> 7, 61 | r);
+      return ((r ^ r >>> 14) >>> 0) / 4294967296;
     };
+  }
+  function pick(arr, rnd){ return arr[Math.floor(rnd()*arr.length)]; }
 
-    // Varighetsforslag per aktivitet og type (minutter)
-    const varighetMinutter = {
-      Løping:      { Langtur: [60, 90, 120], Intervaller: [30, 45, 60], Restitusjon: [20, 30, 40] },
-      Sykling:     { Langtur: [90, 120, 180], Intervaller: [45, 60, 75], Restitusjon: [30, 45, 60] },
-      Langrenn:    { Langtur: [90, 120, 150], Intervaller: [45, 60, 75], Restitusjon: [30, 45, 60] }
-    };
+  const today = new Date();
+  document.getElementById('date').textContent = `Dato: ${formatDateNo(today)}`;
 
-    // Beskrivelsesgeneratorer
-    const beskrivelser = {
-      Langtur: (akt, min) => `${akt} rolig og jevnt tempo. Hold pratefart. Drikk jevnt. ${min} min totalt.`,
-      Intervaller: (akt, min) => {
-        // Del opp i serier basert på aktivitet
-        const oppsett = {
-          Løping: [
-            '5 × 4 min (2 min jogg pause)',
-            '6 × 3 min (90 s pause)',
-            '4 × 6 min (2 min pause)'
-          ],
-          Sykling: [
-            '4 × 8 min (3 min lett tråkk pause)',
-            '5 × 5 min (2 min pause)',
-            '3 × 10 min (3 min pause)'
-          ],
-          Langrenn: [
-            '5 × 5 min (2 min stake/jogg pause)',
-            '6 × 4 min (2 min pause)',
-            '4 × 8 min (3 min pause)'
-          ]
-        };
-        const seed = todaySeed(today);
-        const rndLocal = rngFromSeed(seed ^ 0x9E3779B9);
-        const serie = pick(oppsett[akt], rndLocal);
-        return `${akt} intervaller: ${serie}. Opp- og nedjogg inkludert for å fylle ca. ${min} min totalt.`;
-      },
-      Restitusjon: (akt, min) => `${akt} veldig rolig. Fokus på teknikk og lav puls. ${min} min + lett mobilitet/styrke stabilitet.`
-    };
+  const month = today.getMonth() + 1; // 1-12
+  const vinter = (month >= 11 || month <= 4); // nov–apr inkl.
 
-    // Velg forslag basert på dagens seed
-    const seed = todaySeed(today);
-    const rnd = rngFromSeed(seed);
+  // Aktivitetspool: langrenn bare om vinter
+  const aktiviteter = vinter ? ['Langrenn', 'Løping', 'Sykling'] : ['Løping', 'Sykling'];
+  const typer = ['Langtur', 'Intervaller', 'Restitusjon'];
 
-    const aktivitet = pick(aktiviteter, rnd);
-    const type = pick(typer, rnd);
+  // Intensitetsnivåer per type
+  const intensiteter = {
+    Langtur: ['Lav', 'Moderat'],
+    Intervaller: ['Moderat–høy', 'Høy'],
+    Restitusjon: ['Svært lav']
+  };
 
-    // Hvis langrenn ikke er tillatt (mai–okt), blir det aldri valgt pga. aktivitetspool
-    const muligeVarigheter = varighetMinutter[aktivitet][type];
-    const varighet = pick(muligeVarigheter, rnd);
+  // Varighetsforslag per aktivitet og type (minutter)
+  const varighetMinutter = {
+    Løping:   { Langtur: [60, 90, 120], Intervaller: [30, 45, 60], Restitusjon: [20, 30, 40] },
+    Sykling:  { Langtur: [90, 120, 180], Intervaller: [45, 60, 75], Restitusjon: [30, 45, 60] },
+    Langrenn: { Langtur: [90, 120, 150], Intervaller: [45, 60, 75], Restitusjon: [30, 45, 60] }
+  };
 
-    // Intensitet fra type
-    const intensitet = pick(intensiteter[type], rnd);
+  // Beskrivelser
+  const beskrivelser = {
+    Langtur: (akt, min) => `${akt} rolig og jevnt tempo. Hold pratefart. Drikk jevnt. ${min} min totalt.`,
+    Intervaller: (akt, min) => {
+      const oppsett = {
+        Løping:   ['5 × 4 min (2 min jogg pause)', '6 × 3 min (90 s pause)', '4 × 6 min (2 min pause)'],
+        Sykling:  ['4 × 8 min (3 min lett tråkk pause)', '5 × 5 min (2 min pause)', '3 × 10 min (3 min pause)'],
+        Langrenn: ['5 × 5 min (2 min stake/jogg pause)', '6 × 4 min (2 min pause)', '4 × 8 min (3 min pause)']
+      };
+      const seed = todaySeed(today);
+      const rndLocal = rngFromSeed(seed ^ 0x9E3779B9);
+      const serie = pick(oppsett[akt], rndLocal);
+      return `${akt} intervaller: ${serie}. Opp- og nedjogg inkludert for å fylle ca. ${min} min totalt.`;
+    },
+    Restitusjon: (akt, min) => `${akt} veldig rolig. Fokus på teknikk og lav puls. ${min} min + lett mobilitet/styrke stabilitet.`
+  };
 
-    // Bygg beskrivelse
-    const beskrivelse = beskrivelser[type](aktivitet, varighet);
+  // Velg forslag basert på dagens seed
+  const seed = todaySeed(today);
+  const rnd = rngFromSeed(seed);
 
-    // Render til UI
-    document.getElementById('aktivitet').textContent = aktivitet;
-    document.getElementById('type').textContent = type;
-    document.getElementById('intensitet')..textContent = `Intensitet: ${intensitet}`;
-    document.getElementById('varighet').textContent = `Varighet: ca. ${varighet} min`;
-    document.getElementById('beskrivelse').textContent = beskrivelse;
+  const aktivitet = pick(aktiviteter, rnd);
+  const type = pick(typer, rnd);
+  const muligeVarigheter = varighetMinutter[aktivitet][type];
+  const varighet = pick(muligeVarigheter, rnd);
+  const intensitet = pick(intensiteter[type], rnd);
+  const beskrivelse = beskrivelser[type](aktivitet, varighet);
 
-    // Kopier til utklippstavle
-    document.getElementById('kopierBtn').addEventListener('click', async () => {
-      const tekst = `Dagens økt (${formatDateNo(today)}):
+  // Render til UI (rettet linje under)
+  document.getElementById('aktivitet').textContent = aktivitet;
+  document.getElementById('type').textContent = type;
+  document.getElementById('intensitet').textContent = `Intensitet: ${intensitet}`; // ett punktum
+  document.getElementById('varighet').textContent = `Varighet: ca. ${varighet} min`;
+  document.getElementById('beskrivelse').textContent = beskrivelse;
+
+  // Kopier til utklippstavle
+  document.getElementById('kopierBtn').addEventListener('click', async () => {
+    const tekst = `Dagens økt (${formatDateNo(today)}):
 - Aktivitet: ${aktivitet}
 - Type: ${type}
 - Varighet: ca. ${varighet} min
 - Intensitet: ${intensitet}
 - Beskrivelse: ${beskrivelse}`;
-      try {
-        await navigator.clipboard.writeText(tekst);
-        const btn = document.getElementById('kopierBtn');
-        const orig = btn.textContent;
-        btn.textContent = 'Kopiert!';
-        setTimeout(()=>btn.textContent=orig, 1500);
-      } catch {
-        alert('Kunne ikke kopiere. Marker teksten og kopier manuelt.');
-      }
-    });
-  </script>
+    try {
+      await navigator.clipboard.writeText(tekst);
+      const btn = document.getElementById('kopierBtn');
+      const orig = btn.textContent;
+      btn.textContent = 'Kopiert!';
+      setTimeout(()=>btn.textContent=orig, 1500);
+    } catch {
+      alert('Kunne ikke kopiere. Marker teksten og kopier manuelt.');
+    }
+  });
+</script>
 </body>
 </html>
