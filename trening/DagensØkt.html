@@ -1,0 +1,81 @@
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dagens Strava-økt</title>
+  <style>
+    body { font-family: system-ui, Arial; background:#f5f7fa; margin:0; }
+    .container { max-width: 720px; margin: 32px auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.08); }
+    .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+    .title { font-size:1.2rem; font-weight:700; }
+    .card { border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; }
+    .map { width:100%; height:auto; display:block; }
+    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; padding:12px; }
+    .stat { background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:10px; text-align:center; }
+    .label { color:#6b7280; font-size:.85rem; }
+    .value { font-size:1.1rem; font-weight:700; }
+    .actions { display:flex; gap:8px; margin-top:12px; }
+    button { padding:10px 12px; border-radius:8px; border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">Dagens Strava-økt</div>
+      <div id="date"></div>
+    </div>
+
+    <div id="card" class="card">
+      <img id="mapImg" class="map" alt="Kart over økten">
+      <div class="stats">
+        <div class="stat"><div class="label">Type</div><div id="type" class="value">—</div></div>
+        <div class="stat"><div class="label">Distanse</div><div id="distance" class="value">—</div></div>
+        <div class="stat"><div class="label">Tid</div><div id="duration" class="value">—</div></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="saveBtn">Lagre som bilde</button>
+    </div>
+  </div>
+
+  <!-- html2canvas for å lagre kortet som PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function formatNoDate(d){ const dd=String(d.getDate()).padStart(2,'0'); const mm=String(d.getMonth()+1).padStart(2,'0'); const yyyy=d.getFullYear(); return `${dd}.${mm}.${yyyy}`;}
+    document.getElementById('date').textContent = formatNoDate(new Date());
+
+    async function loadWorkout(){
+      const res = await fetch('/api/todays-workout');
+      if(!res.ok){ alert('Kunne ikke hente dagens økt'); return; }
+      const w = await res.json();
+      // Anta at backend gir: { type, distance_m, moving_seconds, map_polyline }
+      document.getElementById('type').textContent = w.type || 'Ukjent';
+      document.getElementById('distance').textContent = (w.distance_m/1000).toFixed(2)+' km';
+      const mins = Math.floor(w.moving_seconds/60), secs = w.moving_seconds%60;
+      document.getElementById('duration').textContent = `${mins}m ${secs}s`;
+
+      // Mapbox Static Image fra polyline (krever MAPBOX_TOKEN i backend eller via URL)
+      // Backend kan gi ferdig URL: w.static_map_url
+      if(w.static_map_url){
+        document.getElementById('mapImg').src = w.static_map_url;
+        document.getElementById('mapImg').alt = 'Kart over økten';
+      } else {
+        // fallback: enkel placeholder
+        document.getElementById('mapImg').src = 'placeholder-map.png';
+      }
+    }
+
+    loadWorkout();
+
+    document.getElementById('saveBtn').addEventListener('click', async () => {
+      const node = document.getElementById('card');
+      const canvas = await html2canvas(node, {scale:2});
+      const link = document.createElement('a');
+      link.download = `strava-${Date.now()}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+</body>
+</html>
