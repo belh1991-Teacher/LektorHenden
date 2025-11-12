@@ -34,7 +34,7 @@
     <!-- Innhold: vises kun ved riktig passord -->
     <div id="content" class="hidden">
       <figure>
-        <!-- Bytt bildefil her hver dag -->
+        <!-- Bildet settes automatisk nedenfor via JS -->
         <img id="memeImg" src="svampebob.png" alt="Dagens meme">
         <figcaption id="caption">Dagens meme – <span id="dateText"></span></figcaption>
       </figure>
@@ -50,12 +50,38 @@
       return `${dd}.${mm}.${yyyy}`;
     }
 
-    // Hent dagens dato
+    // Hent dagens dato og passord
     const today = new Date();
     const todayPassword = formatDateNo(today);
 
     // Oppdater bildetekst med dagens dato
     document.getElementById('dateText').textContent = todayPassword;
+
+    // Sett daglig-deterministisk tilfeldig bilde
+    // Liste over tilgjengelige bilder (legg filene i samme mappe eller angi full sti)
+    const memeBilder = [
+      'svampebob.png',
+      'meme1.png',
+      'meme2.png',
+      'meme3.png',
+      'meme4.png'
+    ];
+
+    // Enkel “hash” av dagens dato for å få et stabilt daglig valg
+    function dailyIndexFromDate(d, length) {
+      const dd = d.getDate();
+      const mm = d.getMonth() + 1;
+      const yyyy = d.getFullYear();
+      // Lag et tall basert på yyyy,mm,dd
+      const seed = yyyy * 10000 + mm * 100 + dd;
+      // En liten blanding for bedre spredning
+      const mixed = (seed ^ 0x9e3779b9) * 2654435761 % 4294967296;
+      return mixed % length;
+    }
+
+    const idx = dailyIndexFromDate(today, memeBilder.length);
+    const valgtBilde = memeBilder[idx];
+    document.getElementById('memeImg').src = valgtBilde;
 
     // Enkel innlogging
     const passwordInput = document.getElementById('password');
