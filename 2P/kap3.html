@@ -171,7 +171,7 @@
         <div class="helper"> </div>
       </div>
 
-      <div class="question" data-topic="kpi" data-id="q2" data-type="numeric" data-answer="6.52">
+      <div class="question" data-topic="kpi" data-id="q2" data-type="numeric" data-answer="6.50">
         <div class="q-header">
           <span class="badge">KPI og prisvekst</span>
           <span class="q-text">2) KPI øker fra 123,0 til 131,0. Hvor mange prosent økning er dette? (to desimaler)</span>
@@ -200,21 +200,22 @@
       </div>
 
       <!-- Reallønn -->
-      <div class="question" data-topic="reallonn" data-id="q5" data-type="numeric" data-answer="1.94">
+      <div class="question" data-topic="reallonn" data-id="q5" data-type="numeric" data-answer="20">
         <div class="q-header">
           <span class="badge">Reallønn</span>
-          <span class="q-text">5) Nominell lønnsvekst er 4% mens KPI-vekst er 2%. Hvor mye øker reallønna? (to desimaler, i prosentpoeng)</span>
+          <span class="q-text">5) KPI i 2020 er 112.2. Prisen for melk i 2020 er 22.50 kr. Hva var prisen i 2015? (ingen desimaler)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 1.67 eller 1.67%" />
+        <input class="numeric" type="text" placeholder="f.eks. 16" />
         <div class="helper"> </div>
       </div>
 
-      <div class="question" data-topic="reallonn" data-id="q6" data-type="numeric" data-answer="2.94">
+      <div class="question" data-topic="reallonn" data-id="q6" data-type="numeric" data-answer="93.3">
         <div class="q-header">
           <span class="badge">Reallønn</span>
-          <span class="q-text">6) Lønna øker 5%, KPI øker 2%. Hvor mye øker reallønna? (to desimaler, i %)</span>
+          <span class="q-text">6) I basisåret 2015 brukte norske husholdninger i gjennomsnitt 463 799 kr. I 2011 brukte de i gjennomsnitt 432 724 kr. 
+            Finn konsumprisindeksen i 2011? (en desimal)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 2.67 eller 2.67%" />
+        <input class="numeric" type="text" placeholder="f.eks. 92.6" />
         <div class="helper"> </div>
       </div>
 
@@ -225,25 +226,25 @@
           <span class="q-text">7) En person har månedslønn 28 333 kr. Hva er årlig bruttolønn? (12 måneder)</span>
         </div>
         <input class="numeric" type="text" placeholder="f.eks. 670000" />
-        <div class="helper">Rund av </div>
+        <div class="helper">Rund av til nærmeste 1000</div>
       </div>
 
       <div class="question" data-topic="lonn" data-id="q8" data-type="numeric" data-answer="268000">
         <div class="q-header">
           <span class="badge">Nettolønn</span>
-          <span class="q-text">8) Årlig bruttolønn er 340 000 kr. Skatt er 21.2%. Hva er nettolønn per år? (avrund hele kr)</span>
+          <span class="q-text">8) Årlig bruttolønn er 340 000 kr. Skatt er 21.2%. Hva er nettolønn per år? (avrund nærmeste 1000 kr)</span>
         </div>
         <input class="numeric" type="text" placeholder="f.eks. 267000" />
         <div class="helper">Netto ≈ brutto · (1 - skatteprosent)</div>
       </div>
 
       <!-- Sparing -->
-      <div class="question" data-topic="sparing" data-id="q9" data-type="numeric" data-answer="1220.19">
+      <div class="question" data-topic="sparing" data-id="q9" data-type="numeric" data-answer="1210">
         <div class="q-header">
           <span class="badge">Sparing</span>
-          <span class="q-text">9) Du setter inn 1 000 kr på sparekonto med 10% årlig rente. Hvor mye har du etter 2 år? (to desimaler)</span>
+          <span class="q-text">9) Du setter inn 1 000 kr på sparekonto med 10% årlig rente. Hvor mye har du etter 2 år? (ingen desimaler)</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 1270.00" />
+        <input class="numeric" type="text" placeholder="f.eks. 1270" />
         <div class="helper">Sluttverdi = 1000 · v^2</div>
       </div>
 
@@ -260,7 +261,7 @@
       <div class="question" data-topic="lan" data-id="q11" data-type="mc-single" data-answer="C">
         <div class="q-header">
           <span class="badge">Lån og renter</span>
-          <span class="q-text">11) Effekt av årlig rente 5% på et lån uten nedbetaling første året?</span>
+          <span class="q-text">11) Effekt av årlig rente 5% på et lån uten nedbetaling av noe som helst første året?</span>
         </div>
         <div class="options">
           <label><input type="radio" name="q11" value="A"/> Lånet reduseres med 5%</label>
@@ -276,7 +277,7 @@
           <span class="badge">Lån</span>
           <span class="q-text">12) Du låner 50 000 kr med 5% årlig rente, ingen avdrag første året. Hvor mye skylder du etter 1 år?</span>
         </div>
-        <input class="numeric" type="text" placeholder="f.eks. 52600" />
+        <input class="numeric" type="text" placeholder="f.eks. 57600" />
         <div class="helper">Skyld = beløp · v</div>
       </div>
 
@@ -299,7 +300,6 @@
         <li>KPI: basisår settes ofte til 100. Ny KPI = 100 · (1 + samlet prosentvis endring).</li>
         <li>Prosentendring fra A til B: (B - A)/A · 100%.</li>
         <li>Kroneverdi ≈ 100/KPI. Lavere kroneverdi betyr at en krone kjøper mindre.</li>
-        <li>Reallønnsvekst ≈ (1 + nominell)/ (1 + KPI) - 1.</li>
         <li>Nettolønn ≈ bruttolønn · (1 - skatteprosent).</li>
         <li>Sparing: enkelt rentesrente-anslag Sluttverdi = K0 · (1 + r)^n.</li>
         <li>Lån: uten avdrag vokser lånet med rente; med serielån/annuitet betales både avdrag og renter.</li>
