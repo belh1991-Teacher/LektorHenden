@@ -13,30 +13,6 @@
       --accent: #10b981;
       --border: #e2e8f0;
     }
-              header {
-      position: relative;
-      padding-right: 88px; /* gir plass til logoen ved høyre kant */
-    }
-    header h1 { margin:.2rem 0 .25rem; font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem); }
-    header h2 { margin:0 0 .25rem 0; font-size: clamp(1.2rem, 1.6vw + .8rem, 1.4rem); }
-    header p { margin:0; color: var(--muted); }
-
-    /* Logo oppe til høyre */
-    .logo {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 100px;
-      height: auto;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .logo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* bevarer proporsjoner uten å beskjære */
-    }
 
     body { font-family: system-ui, Arial, sans-serif; background: var(--bg); margin: 0; color: var(--text); }
     .container { max-width: 760px; margin: 40px auto; padding: 0 16px; }
@@ -52,19 +28,46 @@
     .btn { border: 1px solid var(--border); background: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
     .btn:hover { background: #f1f5f9; }
     .small { font-size: 0.9rem; }
+
+    /* Header og logo */
+    header {
+      position: relative;          /* nødvendig for absolut posisjonert logo */
+      padding-right: 116px;        /* litt ekstra plass til logoen */
+      padding-top: 16px;
+      padding-bottom: 8px;
+    }
+    header h1 { margin:.2rem 0 .25rem; font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem); }
+    header h2 { margin:0 0 .25rem 0; font-size: clamp(1.2rem, 1.6vw + .8rem, 1.4rem); }
+    header p { margin:0; color: var(--muted); }
+
+    .logo {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 100px;
+      height: 100px;               /* fast høyde for forutsigbar plassering */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;         /* bevarer proporsjoner uten beskjæring */
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <main class="container" role="main">
-      <header>
-        <!-- Logo øverst til høyre -->
-        <div class="logo" aria-hidden="true">
-          <img src="løperbjørn.png" alt="Bjørn-logo" />
-        </div>
-
-        <h1>Dagens øktforslag</h1>
-      </header>
+  <main class="container" role="main">
+    <div class="card">
+      <div class="pad">
+        <header>
+          <div class="logo" aria-hidden="true">
+            <img src="løperbjørn.png" alt="Bjørn-logo" />
+          </div>
+          <h1>Dagens øktforslag</h1>
+          <p id="date" class="sub">Dato: —</p>
+        </header>
 
         <div class="grid">
           <div id="aktivitet" class="pill accent">—</div>
@@ -82,10 +85,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
+
 <script>
   // Hjelpefunksjoner
-  function formatDateNo(d){ const dd=String(d.getDate()).padStart(2,'0'); const mm=String(d.getMonth()+1).padStart(2,'0'); const yyyy=d.getFullYear(); return `${dd}.${mm}.${yyyy}`; }
+  function formatDateNo(d){
+    const dd=String(d.getDate()).padStart(2,'0');
+    const mm=String(d.getMonth()+1).padStart(2,'0');
+    const yyyy=d.getFullYear();
+    return `${dd}.${mm}.${yyyy}`;
+  }
   function todaySeed(d){ return d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate(); }
   // Enkel deterministisk RNG basert på dagens dato
   function rngFromSeed(seed){
@@ -101,6 +110,7 @@
   function pick(arr, rnd){ return arr[Math.floor(rnd()*arr.length)]; }
 
   const today = new Date();
+  // Oppdater dato i UI (nå finnes #date)
   document.getElementById('date').textContent = `Dato: ${formatDateNo(today)}`;
 
   const month = today.getMonth() + 1; // 1-12
@@ -152,10 +162,10 @@
   const intensitet = pick(intensiteter[type], rnd);
   const beskrivelse = beskrivelser[type](aktivitet, varighet);
 
-  // Render til UI (rettet linje under)
+  // Render til UI
   document.getElementById('aktivitet').textContent = aktivitet;
   document.getElementById('type').textContent = type;
-  document.getElementById('intensitet').textContent = `Intensitet: ${intensitet}`; // ett punktum
+  document.getElementById('intensitet').textContent = `Intensitet: ${intensitet}`;
   document.getElementById('varighet').textContent = `Varighet: ca. ${varighet} min`;
   document.getElementById('beskrivelse').textContent = beskrivelse;
 
