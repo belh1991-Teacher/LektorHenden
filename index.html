@@ -19,7 +19,6 @@
     body {
       margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
       color: var(--text); background: var(--bg);
-      
     }
     .wrapper {
       min-height: 100vh; display:grid; place-items:center; padding: 2rem 1rem;
@@ -29,9 +28,33 @@
       background: var(--card); border:1px solid #e5e7eb; border-radius: var(--radius);
       box-shadow: 0 10px 30px rgba(0,0,0,.06);
       padding: clamp(1rem, 2vw + 1rem, 2rem);
+      position: relative; /* muliggjør absolutt posisjonering av logo inne i container */
+    }
+    header {
+      position: relative;
+      padding-right: 88px; /* gir plass til logoen ved høyre kant */
     }
     header h1 { margin:.2rem 0 .25rem; font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem); }
+    header h2 { margin:0 0 .25rem 0; font-size: clamp(1.2rem, 1.6vw + .8rem, 1.4rem); }
     header p { margin:0; color: var(--muted); }
+
+    /* Logo oppe til høyre */
+    .logo {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* bevarer proporsjoner uten å beskjære */
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -68,14 +91,16 @@
   <div class="wrapper">
     <main class="container" role="main">
       <header>
+        <!-- Logo øverst til høyre -->
+        <div class="logo" aria-hidden="true">
+          <img src="bjørn.png" alt="Bjørn-logo" />
+        </div>
+
         <h1>Lektor Henden</h1>
         <h2>Velg fag</h2>
         <p>Klikk på et fag for å gå til ressursene.</p>
       </header>
-      
-      body { margin:0; font-family: Arial, sans-serif; } .wrapper { padding: 24px; } 
-      header { margin-bottom: 16px; }
-      
+
       <section class="grid" aria-label="Fag">
         <a class="tile" href="Naturfag/index.html">
           <span class="icon" aria-hidden="true"><i class="fa-solid fa-leaf"></i></span>
@@ -106,6 +131,7 @@
           <h2>Fysikk 2</h2>
           <p>Bevegelser, krefter, energi og felt i 2D. Fra klassisk fysikk til moderne fysikk. </p>
         </a>
+
         <a class="tile" href="meme/dagensmeme.html">
           <span class="icon" aria-hidden="true"><i class="fa-solid fa-arrow-down"></i></span>
           <h2>Dagens meme</h2>
