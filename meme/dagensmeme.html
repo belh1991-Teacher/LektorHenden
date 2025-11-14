@@ -70,14 +70,25 @@
     'meme67.png'
   ];
 
-  function dailyIndexFromDate(d, length) {
-    const dd = d.getDate();
-    const mm = d.getMonth() + 1;
-    const yyyy = d.getFullYear();
-    const seed = yyyy * 10000 + mm * 100 + dd;
-    const mixed = (seed ^ 0x9e3779b9) * 2654435761 % 4294967296;
-    return mixed % length;
+  // Hash av en streng (f.eks. "dd.mm.yyyy") → heltall
+  function hashString(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h) + str.charCodeAt(i); // h*31 + char
+      h |= 0; // tving til 32-bit heltall
+    }
+    return Math.abs(h);
   }
+
+  function dailyIndexFromDate(d, length) {
+    const key = formatDateNo(d); // "dd.mm.yyyy"
+    const h = hashString(key);
+    return h % length;
+  }
+
+  const idx = dailyIndexFromDate(new Date(), memeBilder.length);
+  const valgtBilde = memeBilder[idx];
+  imgEl.src = valgtBilde;
 
   const idx = dailyIndexFromDate(new Date(), memeBilder.length);
   const valgtBilde = memeBilder[idx];
