@@ -5,43 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dagens meme</title>
   <style>
-    body { font-family: system-ui, Arial, sans-serif; background: #f5f7fa; margin: 0; }
-    .container { max-width: 720px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-    h1 { margin-top: 0; }
+    :root {
+      --bg: #f5f7fa;
+      --card: #fff;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+      --text: #222;
+      --muted: #666;
+      --error: #c0392b;
+      --radius: 12px;
+    }
+
+    /* Fullscreen layout som sentrerer login-boksen */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;   /* vertikal sentrering */
+      justify-content: center; /* horisontal sentrering */
+    }
+
+    .container {
+      width: min(92vw, 720px);
+      background: var(--card);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h1 { margin: 0 0 8px 0; }
     .hidden { display: none; }
-    .password-box { display: flex; gap: 8px; margin-top: 12px; }
-    input[type="password"] { flex: 1; padding: 10px; font-size: 1rem; }
-    button { padding: 10px 14px; font-size: 1rem; cursor: pointer; }
-    .error { color: #c0392b; margin-top: 8px; }
+
+    .password-box {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    input[type="password"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 14px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background: #1f6feb;
+      color: white;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: var(--error);
+      margin-top: 8px;
+    }
+
     figure { margin: 0; }
-    img { max-width: 100%; height: auto; border-radius: 8px; }
+    img { max-width: 100%; height: auto; border-radius: 8px; display: block; }
     figcaption { color: #555; margin-top: 8px; }
-    .hint { color: #666; font-size: 0.95rem; margin-top: 8px; }
-    #login, #content { max-width: 720px; margin: 40px auto; }
+    .hint { color: var(--muted); font-size: 0.95rem; margin-top: 8px; }
+
+    /* Når innholdet vises, justerer vi layouten så det ikke må være fullskjerm-sentrert */
+    .stage {
+      width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
   </style>
 </head>
 <body>
 
-<div id="login" class="container">
-  <h1>Dagens meme</h1>
-  <label for="password">Passord (dd.mm.yyyy):</label>
-  <div class="password-box">
-    <input type="password" id="password" placeholder="f.eks. 14.11.2025" autocomplete="off" />
-    <button id="openBtn">Åpne</button>
+  <!-- Login-boksen er midtstilt med body flex -->
+  <div id="login" class="container">
+    <h1>Dagens meme</h1>
+    <label for="password">Passord (dd.mm.yyyy):</label>
+    <div class="password-box">
+      <input type="password" id="password" placeholder="f.eks. 14.11.2025" autocomplete="off" />
+      <button id="openBtn">Åpne</button>
+    </div>
+    <div id="error" class="error hidden">Feil passord. Bruk format dd.mm.yyyy.</div>
   </div>
-  <div id="error" class="error hidden">Feil passord. Bruk format dd.mm.yyyy.</div>
-</div>
 
-<div id="content" class="container hidden">
-  <figure>
-    <img id="memeImg" src="" alt="Dagens meme">
-    <figcaption id="caption">Dagens meme – <span id="dateText"></span></figcaption>
-    <p id="imgHint" class="hint hidden"></p>
-  </figure>
-</div>  
-  
+  <!-- Etter innlogging viser vi bildet i en sentrert “stage” -->
+  <div id="content" class="stage hidden">
+    <div class="container">
+      <figure>
+        <img id="memeImg" src="" alt="Dagens meme">
+        <figcaption>Dagens meme – <span id="dateText"></span></figcaption>
+        <p id="imgHint" class="hint hidden"></p>
+      </figure>
+    </div>
+  </div>
+
 <script>
-  // Hjelpefunksjon: datoformat dd.mm.yyyy
+  // Format dd.mm.yyyy
   function formatDateNo(d) {
     const dd = String(d.getDate()).padStart(2, '0');
     const mm = String(d.getMonth() + 1).padStart(2, '0');
@@ -53,9 +120,8 @@
   const today = new Date();
   const todayPassword = formatDateNo(today);
 
-  // Liste over bilder i samme mappe som HTML-filen
+  // Liste over bilder i samme mappe
   const memeBilder = [
-    'svampebob.png',
     'meme.png',
     'meme1.png',
     'meme2.png',
@@ -65,27 +131,26 @@
     'meme6.png',
     'meme7.png',
     'meme8.png',
-    'meme67.png'
+    'svampebob.png', // kan også fungere som fallback
   ];
 
-  // Enkel hash av streng → ikke-kryptografisk, men deterministisk
+  // Enkel deterministisk hash
   function hashString(str) {
     let h = 0;
     for (let i = 0; i < str.length; i++) {
       h = ((h << 5) - h) + str.charCodeAt(i); // h*31 + char
-      h |= 0; // tving til 32-bit heltall
+      h |= 0;
     }
     return Math.abs(h);
   }
 
-  // Finn indeks for gitt dato
   function dailyIndexFromDate(d, length) {
-    const key = formatDateNo(d); // "dd.mm.yyyy"
+    const key = formatDateNo(d);
     const h = hashString(key);
     return h % length;
   }
 
-  // DOM-elementer
+  // DOM
   const passwordInput = document.getElementById('password');
   const openBtn = document.getElementById('openBtn');
   const errorBox = document.getElementById('error');
@@ -95,16 +160,12 @@
   const dateText = document.getElementById('dateText');
   const imgHint = document.getElementById('imgHint');
 
-  // Viser innhold etter korrekt passord
   function showDailyMeme() {
-    // Sett dato i bildetekst
     dateText.textContent = todayPassword;
 
-    // Velg bilde for dagens dato
     const idx = dailyIndexFromDate(today, memeBilder.length);
     const valgtBilde = memeBilder[idx];
 
-    // Sett fallback hvis bildet mangler
     imgEl.onerror = function () {
       console.warn('Fant ikke bildet:', valgtBilde, '- sjekk filnavn og plassering.');
       this.onerror = null;
@@ -116,12 +177,17 @@
     imgEl.src = valgtBilde;
   }
 
-  // Innlogging
   function tryOpen() {
     const input = passwordInput.value.trim();
     if (input === todayPassword) {
-      content.classList.remove('hidden');
+      // Bytt fra login til innhold
       loginBox.classList.add('hidden');
+      content.classList.remove('hidden');
+
+      // Når vi bytter visning, fjerner vi den sentrerte body-layouten for å unngå ekstra høyde
+      document.body.style.alignItems = 'flex-start';
+      document.body.style.justifyContent = 'center';
+
       showDailyMeme();
     } else {
       errorBox.classList.remove('hidden');
