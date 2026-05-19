@@ -233,4 +233,255 @@
                 Pris per bompassering blir:
                 <div class="math-block"><span class="math">3000 kr / 60 = 50 kr</span></div>
                 Vi finner årsavgiften ved å trekke passeringene fra Petters totalsum:
-                <div class="math-block"><span class="math">Års
+                <div class="math-block"><span class="math">Årsavgift = 3200 kr - (40 &middot; 50 kr) = 3200 - 2000 = 1200 kr</span></div>
+                <strong>Svar:</strong> Hver hytteeier betaler 1200 kr i fast årsavgift, og 50 kr per passering.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Lineær modell</div>
+            <div class="solution">
+                La <span class="math">x</span> være antall bompasseringer.
+                <br>
+                <strong>Svar:</strong> Modellen kan skrives som: <span class="math">P(x) = 50x + 1200</span>
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">c) Antall passeringer for Ine</div>
+            <div class="solution">
+                Ine betalte totalt 5200 kroner. Vi setter dette inn i modellen:
+                <div class="math-block"><span class="math">50x + 1200 = 5200 &rArr; 50x = 4000 &rArr; x = 80</span></div>
+                <strong>Svar:</strong> Ine passerte bommen 80 ganger.
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 10</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Bestem tall nummer 8 i tallfølgen</div>
+            <div class="solution">
+                Susannes mønster viser at ledd nummer <span class="math">n</span> beregnes ved å multiplisere tallet før (<span class="math">n-1</span>) med leddnummeret <span class="math">n</span>, og deretter legge til 1.
+                <br>
+                For tall nummer 8 får vi:
+                <div class="math-block"><span class="math">7 &middot; 8 + 1 = 56 + 1 = 57</span></div>
+                <strong>Svar:</strong> Tall nummer 8 i følgen er 57.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Formel for tall nummer n</div>
+            <div class="solution">
+                Generelt bruker vi mønsteret observert i a):
+                <br>
+                <strong>Svar:</strong> <span class="math">T_n = (n - 1) &middot; n + 1 = n<sup>2</sup> - n + 1</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 11</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Bestem K(0) og forklar betydningen</div>
+            <div class="solution">
+                Vi setter <span class="math">x = 0</span> inn i funksjonen <span class="math">K(x) = x<sup>2</sup> + bx + 20 000</span>:
+                <div class="math-block"><span class="math">K(0) = 0<sup>2</sup> + b &middot; 0 + 20 000 = 20 000</span></div>
+                <strong>Svar:</strong> <span class="math">K(0) = 20 000</span>. Verdien forteller at bedriften har faste kostnader (for eksempel husleie, maskiner etc.) på 20 000 kroner, selv om det ikke produseres noen enheter.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Bestem verdien til b</div>
+            <div class="solution">
+                Vi vet at <span class="math">K(50) = 30 000</span>. Vi setter dette inn i uttrykket for å løse for <span class="math">b</span>:
+                <div class="math-block"><span class="math">50<sup>2</sup> + b &middot; 50 + 20 000 = 30 000</span></div>
+                <div class="math-block"><span class="math">2500 + 50b + 20 000 = 30 000</span></div>
+                <div class="math-block"><span class="math">50b = 30 000 - 22 500 = 7500 &rArr; b = 150</span></div>
+                <strong>Svar:</strong> <span class="math">b = 150</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 12</h2>
+        <div class="solution">
+            Formelen er gitt ved: <span class="math">L = p / (287 &middot; T)</span>.
+            <ul>
+                <li><strong>Påstand 1 er sann:</strong> Når temperaturen <span class="math">T</span> holdes konstant, kan formelen skrives som <span class="math">L = k &middot; p</span> der <span class="math">k = 1 / (287 &middot; T)</span> er en konstant. Siden forholdet mellom trykk og lufttetthet er konstant, er de proporsjonale størrelser.</li>
+                <li><strong>Påstand 2 er sann:</strong> Hvis trykket <span class="math">p</span> holdes konstant, kan formelen skrives som <span class="math">L = c / T</span> (eller <span class="math">L &middot; T = c</span>) der <span class="math">c = p / 287</span> er en konstant. Når produktet av to størrelser er konstant, er de omvendt proporsjonale størrelser.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 13</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Praktisk tolkning av modellene f og g</div>
+            <div class="solution">
+                <ul>
+                    <li>Modellen <span class="math">f(x)</span> beskriver en <strong>lineær nedgang</strong> i fuglebestanden. Den forteller at bestanden minker med et fast antall på 300 individer hvert år etter 2026 (fra en startbestand på 20 000).</li>
+                    <li>Modellen <span class="math">g(x)</span> beskriver en <strong>eksponentiell nedgang</strong>. Vekstfaktoren er 0,984, som betyr at bestanden reduseres prosentvis med <span class="math">100 % - 98,4 % = 1,6 %</span> hvert år.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Hva programmet finner ut, og tolkning av utskriften</div>
+            <div class="solution">
+                Løkken i programmet kjører så lenge den lineære modellen anslår en høyere eller lik bestand som den eksponentielle (<span class="math">f(x) &ge; g(x)</span>). Programmet stopper med en gang den lineære modellen gir lavere bestand. 
+                <br><br>
+                Sofie ønsker med dette å finne ut <strong>hvor mange år det tar før den lineære nedgangsmodellen gir et mer pessimistisk (lavere) anslag for bestanden enn den eksponentielle modellen</strong>.
+                <br><br>
+                Utskriften viser tallet 10. Det betyr at det tar <strong>10 år</strong> (altså i år 2036) før dette inntreffer. Da anslår modell <span class="math">f</span> en bestand på 17 000 individer, mens modell <span class="math">g</span> anslår en litt høyere bestand på ca. 17 021 individer.
+            </div>
+        </div>
+    </div>
+
+    <div class="del-header">DEL 2 — Med hjelpemidler</div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 1</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) CO₂-utslipp ved en fart på 50 km/h</div>
+            <div class="solution">
+                Vi setter <span class="math">x = 50</span> inn i funksjonsuttrykket for <span class="math">U(x)</span>:
+                <div class="math-block">
+                    <span class="math">U(50) = 5400 / 50 + 0,0074 &middot; 50<sup>2</sup> + 50 = 108 + 18,5 + 50 = 176,5 g/km</span>
+                </div>
+                <strong>Svar:</strong> Ved en fart på 50 km/h slipper bilen ut 176,5 gram CO₂ per kilometer.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Fart for minste utslipp</div>
+            <div class="solution">
+                Ved å bruke et digitalt verktøy (for eksempel kommandoen <code>Ekstremalpunkt(U, 30, 110)</code> i GeoGebra) finner vi bunnpunktet til grafen i det definerte intervallet.
+                <br>
+                Bunnpunktet registreres som: <span class="math">(71,45 , 163,36)</span>.
+                <br><br>
+                <strong>Svar:</strong> En fart på ca. <strong>71,4 km/h</strong> gir minst utslipp av CO₂ per kilometer. Ved denne farten slipper bilen ut omtrent <strong>163,4 gram</strong> CO₂ per kilometer.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">c) Utslipp i løpet av en 20 minutters kjøretur i 90 km/h</div>
+            <div class="solution">
+                Først finner vi kjørestrekningen. 20 minutter er en tredjedels time (<span class="math">20/60 = 1/3 t</span>). 
+                <div class="math-block"><span class="math">Strekning = 90 km/h &middot; (1/3 t) = 30 km</span></div>
+                Vi beregner utslipp per kilometer ved 90 km/h:
+                <div class="math-block">
+                    <span class="math">U(90) = 5400 / 90 + 0,0074 &middot; 90<sup>2</sup> + 50 = 60 + 59,94 + 50 = 169,94 g/km</span>
+                </div>
+                Totalt utslipp for hele strekningen på 30 km blir:
+                <div class="math-block"><span class="math">Total CO<sub>2</sub> = 30 km &middot; 169,94 g/km = 5098,2 gram</span></div>
+                <strong>Svar:</strong> Bilen slipper ut ca. 5100 gram (eller 5,10 kg) CO₂ i løpet av turen.
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 2</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Nedgang i prosentpoeng</div>
+            <div class="solution">
+                Endringen måles i differansen mellom de to prosentverdiene:
+                <div class="math-block"><span class="math">4,25 % - 4,00 % = 0,25 %</span></div>
+                <strong>Svar:</strong> Styringsrenten ble satt ned med 0,25 prosentpoeng.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Nedgang i prosent</div>
+            <div class="solution">
+                For å finne den prosentvise endringen, deler vi nedgangen på den opprinnelige verdien:
+                <div class="math-block"><span class="math">Prosentvis nedgang = 0,25 / 4,25 &approx; 0,0588 = 5,88 %</span></div>
+                <strong>Svar:</strong> Styringsrenten ble satt ned med ca. 5,9 %.
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 3</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Tors lineære modell f(x)</div>
+            <div class="solution">
+                Mellom 2013 (<span class="math">x = 0</span>) og 2022 (<span class="math">x = 9</span>) sank bestanden fra 9000 til 2500 par.
+                <br>
+                Den årlige lineære endringen (stigningstallet) blir:
+                <div class="math-block"><span class="math">a = (2500 - 9000) / (9 - 0) = -6500 / 9 &approx; -722,2</span></div>
+                Startverdien er <span class="math">9000</span>.
+                <br>
+                <strong>Svar:</strong> Modellen blir <span class="math">f(x) = -722,2x + 9000</span>. Den forteller at vipebestanden i følge Tors antakelse minker lineært med et fast antall på ca. 722 par hvert år.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Egils eksponentielle modell g(x)</div>
+            <div class="solution">
+                Modellen har formen <span class="math">g(x) = a &middot; b<sup>x</sup></span>. Siden startverdien er 9000, er <span class="math">a = 9000</span>. Vi bruker punktet for 2022 der <span class="math">x = 9</span> og <span class="math">g(9) = 2500</span>:
+                <div class="math-block"><span class="math">9000 &middot; b<sup>9</sup> = 2500 &rArr; b<sup>9</sup> = 2500 / 9000 &rArr; b = (25/90)<sup>1/9</sup> &approx; 0,8673</span></div>
+                <strong>Svar:</strong> Modellen blir <span class="math">g(x) = 9000 &middot; 0,867<sup>x</sup></span>. Den forteller at bestanden årlig minker eksponentielt med en fast prosentandel på ca. <span class="math">100 % - 86,7 % = 13,3 %</span>.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">c) Egils nye modell q(x) og dens forutsetninger</div>
+            <div class="solution">
+                <strong>Gjennomgang av antakelsene:</strong> 
+                Grafen til modellen <span class="math">q</span> flater ut horisontalt og nærmer seg en nedre grense (en asymptote) langs linjen <span class="math">y = 2000</span>. Dette betyr at Egil antar at vernetiltakene lykkes i å stoppe den totale kollapsen, slik at bestanden over tid vil stabilisere seg på et fast minimumsnivå på 2000 par.
+                <br><br>
+                <strong>Bestemmelse av p(x):</strong>
+                Fra grafen ser vi at den rene eksponentielle funksjonen <span class="math">p(x) = a &middot; b<sup>x</sup></span> starter i punktet <span class="math">(0, 7000)</span> og synker ned til punktet <span class="math">(9, 500)</span>.
+                <div class="math-block"><span class="math">a = 7000</span></div>
+                <div class="math-block"><span class="math">7000 &middot; b<sup>9</sup> = 500 &rArr; b<sup>9</sup> = 500 / 7000 = 1 / 14 &rArr; b = (1/14)<sup>1/9</sup> &approx; 0,7421</span></div>
+                Det betyr at:
+                <div class="math-block"><strong><span class="math">p(x) = 7000 &middot; 0,742<sup>x</sup></span></strong></div>
+                
+                <strong>Bestemmelse av q(x):</strong>
+                Modellen <span class="math">q</span> har nøyaktig samme krumning og reduksjonsforløp som <span class="math">p</span>, men er forskjøvet vertikalt oppover med nøyaktig 2000 enheter for å treffe stabiliseringsnivået (og starte i 9000 i stedet for 7000).
+                <br><br>
+                <strong>Svar:</strong> 
+                <strong><span class="math">q(x) = 7000 &middot; 0,742<sup>x</sup> + 2000</span></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="oppgave-block">
+        <h2>Oppgave 4</h2>
+        <div class="sub-question">
+            <div class="sub-title">a) Vis at oppvarmingen krever en energi på 2,51 &middot; 10⁷ J</div>
+            <div class="solution">
+                Vannet skal varmes opp fra 10 °C til 70 °C, som gir en temperaturendring på:
+                <div class="math-block"><span class="math">&Delta;T = 70 °C - 10 °C = 60 °C</span></div>
+                For å varme opp 100 liter vann med 60 grader kreves energien:
+                <div class="math-block"><span class="math">E = 100 L &middot; 60 °C &middot; 4184 J/(L&middot;°C) = 25 104 000 J</span></div>
+                Skrevet på standardform blir dette <span class="math">2,51 &middot; 10<sup>7</sup> J</span>. Påstanden er herved vist.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">b) Hvor mange liter vann fra varmtvannstanken bruker han?</div>
+            <div class="solution">
+                Dusjtemperaturen er <span class="math">T = 40 °C</span>. Vi finner forbruket av varmtvann per minutt ved formelen:
+                <div class="math-block"><span class="math">V = (40 - 10) / 4 = 30 / 4 = 7,5 liter per minutt</span></div>
+                Siden Martin dusjer i 10 minutter, blir det totale volumet fra tanken:
+                <div class="math-block"><span class="math">V<sub>tot</sub> = 7,5 L/min &middot; 10 min = 75 liter</span></div>
+                <strong>Svar:</strong> Martin bruker 75 liter vann fra varmtvannstanken under dusjturen.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">c) Hvor mye energi kreves for å varme opp dette vannet?</div>
+            <div class="solution">
+                De 75 literne med vann ble opprinnelig varmet opp fra 10 °C til 70 °C inne i tanken (en økning på 60 grader). Energien som kreves er:
+                <div class="math-block"><span class="math">E = 75 L &middot; 60 °C &middot; 4184 J/(L&middot;°C) = 18 828 000 J</span></div>
+                <strong>Svar:</strong> Det kreves <span class="math">1,88 &middot; 10<sup>7</sup> J</span> (eller 18,8 MJ) for å varme opp vannet.
+            </div>
+        </div>
+        <div class="sub-question">
+            <div class="sub-title">d) Hvor mye kostet det Martin å ta denne dusjen?</div>
+            <div class="solution">
+                Vi regner om energien fra Joule til kilowattimer (kWh):
+                <div class="math-block"><span class="math">Energi i kWh = 18 828 000 J / (3 600 000 J/kWh) = 5,23 kWh</span></div>
+                Strømprisen er oppgitt til 134 øre per kWh, som tilsvarer 1,34 kroner.
+                <br>
+                Kostnaden blir da:
+                <div class="math-block"><span class="math">Pris = 5,23 kWh &middot; 1,34 kr/kWh = 7,008 kr</span></div>
+                <strong>Svar:</strong> Det kostet Martin akkurat 7,00 kroner å ta en dusj denne morgenen.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
