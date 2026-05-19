@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Løsningsforslag: Øvingshefte Del 2 – Fysikk 1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+        header {
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1a365d;
+            font-size: 24pt;
+            margin: 0 0 10px 0;
+        }
+        .subtitle {
+            color: #4a5568;
+            font-size: 14pt;
+            margin: 0;
+            font-weight: 500;
+        }
+        .oppgave-block {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .oppgave-block:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            color: #2b6cb0;
+            font-size: 16pt;
+            border-left: 4px solid #3182ce;
+            padding-left: 12px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .sub-question {
+            margin-bottom: 20px;
+        }
+        .sub-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+        .solution {
+            background-color: #f8fafc;
+            border-left: 3px solid #cbd5e0;
+            padding: 12px 16px;
+            margin-top: 6px;
+            border-radius: 0 4px 4px 0;
+        }
+        .math {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #1a202c;
+        }
+        .math-block {
+            text-align: center;
+            margin: 14px 0;
+            font-size: 11pt;
+            background: #edf2f7;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #1a202c;
+            color: #f7fafc;
+            padding: 16px;
+            border-radius: 6px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10pt;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+        ul {
+            margin-top: 4px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Løsningsforslag: Øvingshefte Del 2</h1>
+        <div class="subtitle">Fysikk 1 — Beregninger og forklaringer med hjelpemidler</div>
+    </header>
+
+    <!-- Oppgave 1 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 1: El-bilens kinematikk og dynamikk</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Vis at bilens akselerasjon er 3,52 m/s²</div>
+            <div class="solution">
+                Først omgjør vi farten fra km/h til m/s:
+                <div class="math-block">
+                    <span class="math">v = 100 / 3,6 m/s = 27,78 m/s</span>
+                </div>
+                Vi bruker definisjonen på konstant akselerasjon siden <span class="math">v<sub>0</sub> = 0</span>:
+                <div class="math-block">
+                    <span class="math">a = (v - v<sub>0</sub>) / t = (27,78 m/s - 0 m/s) / 7,90 s = 3,516 m/s<sup>2</sup> &approx; 3,52 m/s<sup>2</sup></span>
+                </div>
+                Dermed er påstanden vist.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Bestem hvor langt bilen har kjørt under akselerasjonen</div>
+            <div class="solution">
+                Vi bruker veiformel 1 for konstant akselerasjon:
+                <div class="math-block">
+                    <span class="math">s = &frac12;(v<sub>0</sub> + v)t = &frac12; &middot; (0 + 27,78 m/s) &middot; 7,90 s = 109,7 m &approx; 110 m</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Krefter som virker under akselerasjonen</div>
+            <div class="solution">
+                <strong>Figurbeskrivelse:</strong> Vertikalt tegnes tyngdekraften (<span class="math">G</span>) pekende rett ned og normalkraften (<span class="math">N</span>) rett opp; disse er like lange. Horisontalt tegnes motorkraften (<span class="math">F</span>) framover og motstandskraften (<span class="math">R</span>) bakover, der pilen til <span class="math">F</span> er betydelig lengre enn <span class="math">R</span> siden bilen akselererer framover.
+                <br><br>
+                <strong>Beregning av kreftenes størrelse:</strong>
+                <ul>
+                    <li>Tyngdekraft og normalkraft: <span class="math">G = N = m &middot; g = 1610 kg &middot; 9,81 m/s<sup>2</sup> = 15794 N &approx; 15,8 kN</span></li>
+                    <li>Gitt konstant motstandskraft: <span class="math">R = 550 N</span></li>
+                    <li>Vi finner motorkraften (<span class="math">F</span>) ved Newtons 2. lov horisontalt (<span class="math">&Sigma;F = m &middot; a</span>):
+                        <div class="math-block">
+                            <span class="math">F - R = m &middot; a &rArr; F = (m &middot; a) + R</span>
+                        </div>
+                        <div class="math-block">
+                            <span class="math">F = (1610 kg &middot; 3,516 m/s<sup>2</sup>) + 550 N = 5661 N + 550 N = 6211 N &approx; 6,21 kN</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Hvor stort arbeid har motorkraften gjort under akselerasjonen?</div>
+            <div class="solution">
+                Arbeidet er definert som kraft ganger strekning i bevegelsesretningen:
+                <div class="math-block">
+                    <span class="math">W<sub>F</sub> = F &middot; s = 6211 N &middot; 109,7 m = 681346 J &approx; 681 kJ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">e) Hvor langt kan bilen kjøre totalt før batteriet er tomt?</div>
+            <div class="solution">
+                Vi finner først den totalt tilgjengelige nyttbare energien fra batteriet ved hjelp av virkningsgraden:
+                <div class="math-block">
+                    <span class="math">E<sub>nyttbar</sub> = 62 kWh &middot; 0,80 = 49,6 kWh</span>
+                </div>
+                Omgjort til Joule: <span class="math">49,6 &middot; 3,6 &middot; 10<sup>6</sup> J = 1,786 &middot; 10<sup>8</sup> J</span>.
+                <br>
+                Vi trekker fra energien (arbeidet) som gikk med under selve akselerasjonen:
+                <div class="math-block">
+                    <span class="math">E<sub>rest</sub> = 1,786 &middot; 10<sup>8</sup> J - 6,813 &middot; 10<sup>5</sup> J = 1,779 &middot; 10<sup>8</sup> J</span>
+                </div>
+                På motorveien kjører bilen med konstant fart, som betyr at <span class="math">&Sigma;F = 0</span>. Da må motorkraften akkurat balansere motstandskreftene: <span class="math">F = R = 550 N</span>.
+                <br>
+                Kjørestrekningen på motorveien (<span class="math">s<sub>2</sub></span>) blir:
+                <div class="math-block">
+                    <span class="math">s<sub>2</sub> = E<sub>rest</sub> / F = 1,779 &middot; 10<sup>8</sup> J / 550 N = 323454 m &approx; 323,5 km</span>
+                </div>
+                Total kjørelengde blir akselerasjonsstrekningen pluss motorveistrekningen:
+                <div class="math-block">
+                    <span class="math">s<sub>tot</sub> = 0,11 km + 323,5 km &approx; 324 km</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 2 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 2: Lekerakett i vertikalbevegelse</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Hva menes med fritt fall?</div>
+            <div class="solution">
+                Et legeme er i fritt fall når det kun er påvirket av tyngdekraften (<span class="math">G = mg</span>). Det forutsetter at alle andre krefter, som for eksempel luftmotstand, neglisjeres eller er fraværende.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Krefter etter oppskyting (før fallskjerm)</div>
+            <div class="solution">
+                <strong>Figurbeskrivelse:</strong> Siden vi ser bort fra luftmotstand i denne fasen, tegnes raketten kun med én enkelt pil som peker loddrett nedover: tyngdekraften (<span class="math">G</span>). Dette gjelder både på vei opp og på vei ned før skjermen løses ut.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Hvor høyt kommer raketten?</div>
+            <div class="solution">
+                Gjør om startfarten til m/s: <span class="math">v<sub>0</sub> = 135 / 3,6 m/s = 37,5 m/s</span>. I toppunktet er farten <span class="math">v = 0</span>. Vi velger positiv retning oppover, slik at <span class="math">a = -g = -9,81 m/s<sup>2</sup></span>.
+                <br>
+                Vi bruker den tidløse formelen:
+                <div class="math-block">
+                    <span class="math">v<sup>2</sup> - v<sub>0</sub><sup>2</sup> = 2as &rArr; s = (v<sup>2</sup> - v<sub>0</sub><sup>2</sup>) / 2a = (0 - 37,5<sup>2</sup>) / (2 &middot; (-9,81)) = 71,67 m &approx; 71,7 m</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Hvor lang tid tar det til høyeste punkt?</div>
+            <div class="solution">
+                Vi bruker fartsformelen:
+                <div class="math-block">
+                    <span class="math">v = v<sub>0</sub> + at &rArr; 0 = 37,5 - 9,81t &rArr; t = 37,5 / 9,81 = 3,82 s</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">e) Vis at farten er 4,91 m/s når skjermen løses ut</div>
+            <div class="solution">
+                Raketten snur i toppunktet der <span class="math">v<sub>0</sub> = 0</span>. Den faller i fritt fall nedover i <span class="math">t = 0,5 s</span> før fallskjermen folder seg ut. Med positiv retning nedover får vi:
+                <div class="math-block">
+                    <span class="math">v = v<sub>0</sub> + gt = 0 + (9,81 m/s<sup>2</sup> &middot; 0,5 s) = 4,905 m/s &approx; 4,91 m/s</span>
+                </div>
+                Retningen er loddrett nedover, som stemmer med påstanden.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">f) Krefter etter at fallskjermen er løst ut</div>
+            <div class="solution">
+                <strong>Figurbeskrivelse:</strong> Siden raketten daler med konstant fart, er akselerasjonen lik null, som betyr at summen av kreftene er null (<span class="math">&Sigma;F = 0</span>). Vi tegner en pil for tyngdekraften (<span class="math">G</span>) rett ned, og en pil for luftmotstanden (<span class="math">L</span>) rett opp. Disse to pilene må være <strong>nøyaktig like lange</strong>.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">g) Hvor lang tid etter oppskytingen lander raketten?</div>
+            <div class="solution">
+                Vi må først finne ut hvor langt raketten falt i løpet av de 0,5 sekundene med fritt fall:
+                <div class="math-block">
+                    <span class="math">s<sub>1</sub> = &frac12;gt<sup>2</sup> = &frac12; &middot; 9,81 m/s<sup>2</sup> &middot; (0,5 s)<sup>2</sup> = 1,23 m</span>
+                </div>
+                Høyden som gjenstår ned til bakken er: <span class="math">s<sub>gjenstående</sub> = 71,67 m - 1,23 m = 70,44 m</span>.
+                <br>
+                Tiden det tar å tilbakelegge denne strekningen med konstant fart <span class="math">v = 4,905 m/s</span> blir:
+                <div class="math-block">
+                    <span class="math">t<sub>skjerm</sub> = s<sub>gjenstående</sub> / v = 70,44 m / 4,905 m/s = 14,36 s</span>
+                </div>
+                Total tid fra oppskyting til landing:
+                <div class="math-block">
+                    <span class="math">t<sub>tot</sub> = 3,82 s (opp) + 0,50 s (fall) + 14,36 s (med skjerm) &approx; 18,7 s</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">h) Skisse av posisjonsgrafen</div>
+            <div class="solution">
+                Grafen starter i origo <span class="math">(0,0)</span> og har form som en parabel med avtagende stigningstendens (krummer nedover) opp til toppunktet på <span class="math">(3,82 s, 71,7 m)</span>. Deretter krummer den svakt nedover i en ny liten parabelbue det neste halve sekundet pga. tyngdeakselerasjonen. Fra <span class="math">t = 4,32 s</span> og frem til landing ved <span class="math">t = 18,7 s</span> går grafen over i en <strong>helt rett, lineær linje</strong> med et konstant negativt stigningstall på <span class="math">-4,91 m/s</span> som treffer t-aksen (bakken).
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 3 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 3: Energibetraktning i skihopping</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Hvorfor er den mekaniske energien bevart i ovarennet?</div>
+            <div class="solution">
+                Når vi ser bort fra friksjon og luftmotstand, virker det kun én kraft som gjør et arbeid på skihopperen, og det er tyngdekraften. Tyngdekraften er en konservativ kraft. Normalkraften fra underlaget står til enhver tid vinkelrett på bevegelsesretningen, og gjør derfor ikke noe arbeid (<span class="math">W = F &middot; s &middot; cos(90&deg;) = 0</span>). Siden ingen ikke-konservative krefter gjør et arbeid, er den totale mekaniske energien bevart.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Potensiell energi ved hoppkanten</div>
+            <div class="solution">
+                Med nullnivå på sletta er høyden ved hoppkanten <span class="math">h = 80,0 m</span>:
+                <div class="math-block">
+                    <span class="math">E<sub>p</sub> = mgh = 60,0 kg &middot; 9,81 m/s<sup>2</sup> &middot; 80,0 m = 47088 J &approx; 47,1 kJ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Vis at den teoretiske farten ved hoppkanten er 31,3 m/s</div>
+            <div class="solution">
+                Siden mekanisk energi er bevart, setter vi energien på toppen lik energien på hoppkanten:
+                <div class="math-block">
+                    <span class="math">mgh<sub>topp</sub> = mgh<sub>kant</sub> + &frac12;mv<sup>2</sup></span>
+                </div>
+                Vi kan stryke massen <span class="math">m</span> i alle ledd og løse for farten <span class="math">v</span>:
+                <div class="math-block">
+                    <span class="math">v = &radic;(2g(h<sub>topp</sub> - h<sub>kant</sub>)) = &radic;(2 &middot; 9,81 &middot; (130 - 80,0)) = &radic;(981) = 31,32 m/s &approx; 31,3 m/s</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Arbeid gjort av friksjonskreftene</div>
+            <div class="solution">
+                Virkelig målt fart er <span class="math">v = 90,0 km/h = 90,0 / 3,6 m/s = 25,0 m/s</span>.
+                <br>
+                Friksjonsarbeidet (<span class="math">W<sub>R</sub></span>) er lik endringen i den totale mekaniske energien fra start til slutt:
+                <div class="math-block">
+                    <span class="math">W<sub>R</sub> = E<sub>slutt</sub> - E<sub>start</sub> = (mgh<sub>kant</sub> + &frac12;mv<sup>2</sup>) - mgh<sub>topp</sub></span>
+                </div>
+                <div class="math-block">
+                    <span class="math">W<sub>R</sub> = (47088 J + &frac12; &middot; 60,0 kg &middot; 25,0<sup>2</sup> m<sup>2</sup>/s<sup>2</sup>) - (60,0 kg &middot; 9,81 m/s<sup>2</sup> &middot; 130 m)</span>
+                </div>
+                <div class="math-block">
+                    <span class="math">W<sub>R</sub> = (47088 J + 18750 J) - 76518 J = 65838 J - 76518 J = -10680 J &approx; -10,7 kJ</span>
+                </div>
+                Friksjonskreftene har utført et arbeid på <span class="math">-10,7 kJ</span> (negativt fortegn viser at energi tas ut av systemet).
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">e) Fordeler og ulemper med motvind for en skihopper</div>
+            <div class="solution">
+                <ul>
+                    <li><strong>Fordeler:</strong> Motvind øker den relative lufthastigheten over hopperens kropp og ski, noe som i henhold til aerodynamiske prinsipper skaper et vesentlig større <strong>løft</strong>. Dette gjør at hopperen kan "flyte" lenger nedover i bakken.</li>
+                    <li><strong>Ulemper:</strong> Økt lufthastighet øker samtidig den aerodynamiske <strong>luftmotstanden (drag)</strong>, noe som bremser den horisontale hastigheten i forhold til bakken raskere. Hvis motvinden er for uforutsigbar eller kraftig, kan det også utgjøre en stor sikkerhetsrisiko.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 4 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 4: Forfølgelsesscenario (Barnevognen)</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Forklar barnevognas posisjonsfunksjon s(t)</div>
+            <div class="solution">
+                Vogna starter fra ro (<span class="math">v<sub>0</sub> = 0</span>) ved tiden <span class="math">t = -3,0 s</span>. Det betyr at når klokken viser <span class="math">t</span> (hvor <span class="math">t = 0</span> er i det Vebjørn begynner å løpe), så har vogna trillet i nøyaktig <span class="math">(t + 3)</span> sekunder. 
+                <br>
+                Vi setter dette inn i den generelle veiformelen <span class="math">s = &frac12;at<sup>2</sup></span>:
+                <div class="math-block">
+                    <span class="math">s(t) = &frac12; &middot; 0,900 &middot; (t + 3)<sup>2</sup> = 0,450 &middot; (t<sup>2</sup> + 6t + 9) = 0,450t<sup>2</sup> + 2,70t + 4,05</span>
+                </div>
+                Dette stemmer nøyaktig med det oppgitte uttrykket.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Hvor lang tid har Vebjørn løpt når han tar igjen vogna?</div>
+            <div class="solution">
+                Siden Vebjørn løper med konstant fart fra nullpunktet, er hans posisjon gitt ved <span class="math">s<sub>v</sub>(t) = 6,00t</span>. Han tar igjen vogna når posisjonene er like:
+                <div class="math-block">
+                    <span class="math">0,450t<sup>2</sup> + 2,70t + 4,05 = 6,00t &rArr; 0,450t<sup>2</sup> - 3,30t + 4,05 = 0</span>
+                </div>
+                Vi løser andregradsligningen med abc-formelen:
+                <div class="math-block">
+                    <span class="math">t = [3,30 &plusmn; &radic;((-3,30)<sup>2</sup> - 4 &middot; 0,450 &middot; 4,05)] / (2 &middot; 0,450) = [3,30 &plusmn; &radic;(10,89 - 7,29)] / 0,90</span>
+                </div>
+                <div class="math-block">
+                    <span class="math">t = [3,30 &plusmn; &radic;(3,6)] / 0,90</span>
+                </div>
+                Dette gir to positive svar: <span class="math">t<sub>1</sub> = 1,56 s</span> og <span class="math">t<sub>2</sub> = 5,77 s</span>. Vebjørn når frem og henter igjen barnevognen første gang etter <span class="math"><strong>1,56 sekunder</strong></span>.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Hvor lenge kan han maksimalt vente og fortsatt klare å ta den igjen?</div>
+            <div class="solution">
+                La <span class="math">T</span> være den ukjente ventetiden. Da har vogna trillet i <span class="math">(t + T)</span> sekunder, slik at vognas posisjon er <span class="math">s(t) = 0,450(t + T)<sup>2</sup></span>. Grensen for at Vebjørn akkurat klarer å nå den igjen, betyr matematisk at de to posisjonsgrafene tangerer hverandre (ligningen <span class="math">s(t) = s<sub>v</sub>(t)</span> har akkurat én løsning):
+                <div class="math-block">
+                    <span class="math">0,450(t + T)<sup>2</sup> = 6,00t &rArr; 0,450t<sup>2</sup> + (0,90T - 6,00)t + 0,450T<sup>2</sup> = 0</span>
+                </div>
+                For at andregradsligningen bare skal ha én løsning, må diskriminanten være lik null:
+                <div class="math-block">
+                    <span class="math">B<sup>2</sup> - 4AC = 0 &rArr; (0,90T - 6,00)<sup>2</sup> - 4 &middot; 0,450 &middot; 0,450T<sup>2</sup> = 0</span>
+                </div>
+                <div class="math-block">
+                    <span class="math">0,81T<sup>2</sup> - 10,8T + 36,0 - 0,81T<sup>2</sup> = 0 &rArr; -10,8T = -36,0 &rArr; T = 3,33 s</span>
+                </div>
+                Vebjørn kan maksimalt vente i <span class="math"><strong>3,33 sekunder</strong></span> på toppen av bakken.
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 5 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 5: Kjernefysisk fusjon i sola</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Reaksjonslikning og bevaringslover</div>
+            <div class="solution">
+                Reaksjonslikningen skrives slik:
+                <div class="math-block">
+                    <span class="math"><sup>2</sup><sub>1</sub>H + <sup>3</sup><sub>1</sub>H &rarr; <sup>4</sup><sub>2</sub>He + <sup>1</sup><sub>0</sub>n</span>
+                </div>
+                <ul>
+                    <li><strong>Nukleontall (øverst):</strong> Før: <span class="math">2 + 3 = 5</span>. Etter: <span class="math">4 + 1 = 5</span>. Siden <span class="math">5 = 5</span>, er nukleontallet bevart.</li>
+                    <li><strong>Ladningstall (nederst):</strong> Før: <span class="math">1 + 1 = 2</span>. Etter: <span class="math">2 + 0 = 2</span>. Siden <span class="math">2 = 2</span>, er ladningstallet bevart.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Regn ut frigjort energi fra én enkelt reaksjon</div>
+            <div class="solution">
+                Vi henter nøyaktige atommasser i u:
+                <br>
+                Masse før: <span class="math">2,01410 u (H-2) + 3,01605 u (H-3) = 5,03015 u</span>.
+                <br>
+                Masse etter: <span class="math">4,00260 u (He-4) + 1,00866 u (n) = 5,01126 u</span>.
+                <br>
+                Massesvinn: <span class="math">&Delta;m = 5,03015 u - 5,01126 u = 0,01889 u</span>.
+                <br>
+                Vi bruker Einsteins energiekvalens, der <span class="math">1 u = 931,5 MeV</span>:
+                <div class="math-block">
+                    <span class="math">E = &Delta;m &middot; c<sup>2</sup> = 0,01889 u &middot; 931,5 MeV/u = 17,596 MeV</span>
+                </div>
+                Omgjort til Joule: <span class="math">17,596 &middot; 10<sup>6</sup> &middot; (1,602 &middot; 10<sup>-19</sup> J) = 2,82 &middot; 10<sup>-12</sup> J</span>.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Hvor mange årsforbruk dekkes av fusjon av 1,0 kg brenselblanding?</div>
+            <div class="solution">
+                Massen til ett reaksjonspar er <span class="math">5,03015 u &approx; 5,03 &middot; 1,66 &middot; 10<sup>-27</sup> kg = 8,35 &middot; 10<sup>-27</sup> kg</span>.
+                <br>
+                Antall reaksjoner i 1,0 kg blanding blir:
+                <div class="math-block">
+                    <span class="math">N = 1,0 kg / (8,35 &middot; 10<sup>-27</sup> kg) = 1,197 &middot; 10<sup>26</sup> reaksjoner</span>
+                </div>
+                Total frigjort energi: <span class="math">E<sub>tot</sub> = 1,197 &middot; 10<sup>26</sup> &middot; 2,819 &middot; 10<sup>-12</sup> J = 3,375 &middot; 10<sup>14</sup> J</span>.
+                <br>
+                Ett gjennomsnittlig årsforbruk er <span class="math">15000 kWh = 15000 &middot; 3,6 &middot; 10<sup>6</sup> J = 5,40 &middot; 10<sup>10</sup> J</span>.
+                <br>
+                Antall dekte husholdninger:
+                <div class="math-block">
+                    <span class="math">Antall = 3,375 &middot; 10<sup>14</sup> J / (5,40 &middot; 10<sup>10</sup> J) &approx; 6250 årsforbruk</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Hvorfor er kontrollert fusjon så vanskelig å realisere på jorda?</div>
+            <div class="solution">
+                Hydrogenkjernene har positive elektriske ladninger og vil frastøte hverandre voldsomt pga. Coulombs lov. For at den sterke kjernekraften skal overta og binde dem sammen, må brenselet varmes opp til ekstreme temperaturer (rundt 100 millioner grader Celsius) slik at partiklene har høy nok kinetisk energi til å overvinne barrieren. Hovedutfordringen på jorda er å holde på og kontrollere et slikt supervarmt plasma over tid uten at det berører og smelter reaktorveggene, noe man forsøker å løse ved hjelp av sterke magnetfelt (f.eks. i Tokamak-reaktorer).
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 6 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 6: Jordas strålingsbalanse og klima</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Vis at I<sub>S</sub>(1 - &alpha;) = 4 &middot; U ved strålingsbalanse</div>
+            <div class="solution">
+                Jorda mottar solstråling over et tverrsnitt som tilsvarer en sirkelskive med jordas radius: <span class="math">A<sub>inn</sub> = &pi;r<sup>2</sup></span>. Siden albedoen <span class="math">&alpha;</span> reflekteres, absorberes andelen <span class="math">(1 - &alpha;)</span>.
+                <br>
+                Mottatt effekt: <span class="math">P<sub>inn</sub> = I<sub>S</sub> &middot; &pi;r<sup>2</sup> &middot; (1 - &alpha;)</span>.
+                <br>
+                Jorda stråler ut varmeenergi i alle retninger fra hele sin kuleoverflate: <span class="math">A<sub>ut</sub> = 4&pi;r<sup>2</sup></span>.
+                <br>
+                Utstrålt effekt: <span class="math">P<sub>ut</sub> = U &middot; 4&pi;r<sup>2</sup></span>.
+                <br>
+                Ved strålingsbalanse må <span class="math">P<sub>inn</sub> = P<sub>ut</sub></span>:
+                <div class="math-block">
+                    <span class="math">I<sub>S</sub> &middot; &pi;r<sup>2</sup> &middot; (1 - &alpha;) = U &middot; 4&pi;r<sup>2</sup></span>
+                </div>
+                Vi dividerer med <span class="math">&pi;r<sup>2</sup></span> på begge sider og står igjen med:
+                <div class="math-block">
+                    <span class="math">I<sub>S</sub>(1 - &alpha;) = 4 &middot; U</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Bestem gjennomsnittstemperaturen på jorda ut fra modellen</div>
+            <div class="solution">
+                Vi bruker ligningen fra a) og uttrykker utstrålingstettheten med Stefan-Boltzmanns lov (<span class="math">U = &sigma;T<sup>4</sup></span>):
+                <div class="math-block">
+                    <span class="math">1367 W/m<sup>2</sup> &middot; (1 - 0,33) = 4 &middot; (5,67 &middot; 10<sup>-8</sup> W/(m<sup>2</sup>K<sup>4</sup>)) &middot; T<sup>4</sup></span>
+                </div>
+                <div class="math-block">
+                    <span class="math">915,89 = 2,268 &middot; 10
+                    <sup>-7</sup> &middot; T<sup>4</sup> &rArr; T<sup>4</sup> = 4,0383 &middot; 10<sup>9</sup> &rArr; T = 251,9 K &approx; -21 &deg;C</span>
+                </div>
+                <strong>Kommentar:</strong> Resultatet på <span class="math">-21 &deg;C</span> er langt lavere enn jordas virkelige gjennomsnittstemperatur (som er rundt <span class="math">+15 &deg;C</span>). Avviket skyldes at denne enkle modellen ser fullstendig bort fra atmosfæren og den naturlige drivhuseffekten, som absorberer og reflekterer langbølget varmestråling tilbake til overflaten.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Hvor mye energi kreves for å øke temperaturen i Antarktis-isen med 1 grad?</div>
+            <div class="solution">
+                Vi finner først volumet av isen i km<sup>3</sup>:
+                <div class="math-block">
+                    <span class="math">V = 14 &middot; 10<sup>6</sup> km<sup>2</sup> &middot; 1,9 km = 2,66 &middot; 10<sup>7</sup> km<sup>3</sup></span>
+                </div>
+                Massen finnes via den oppgitte massetettheten:
+                <div class="math-block">
+                    <span class="math">m = &rho; &middot; V = (9,2 &middot; 10<sup>11</sup> kg/km<sup>3</sup>) &middot; (2,66 &middot; 10<sup>7</sup> km<sup>3</sup>) = 2,447 &middot; 10<sup>19</sup> kg</span>
+                </div>
+                Energien beregnes med den spesifikke varmekapasiteten (<span class="math">c = 2,05 kJ/(kg&middot;K) = 2050 J/(kg&middot;K)</span>):
+                <div class="math-block">
+                    <span class="math">Q = mc&Delta;T = 2,447 &middot; 10<sup>19</sup> kg &middot; 2050 J/(kg&middot;K) &middot; 1 K = 5,02 &middot; 10<sup>22</sup> J &approx; 5,0 &middot; 10<sup>22</sup> J</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Vurdering av utsagnene om issmelting</div>
+            <div class="solution">
+                <ul>
+                    <li><strong>Nikolai:</strong> Har delvis rett i at flytende havis som smelter ikke hever havnivået direkte i vesentlig grad (Arkimedes' lov). Men han tar feil i at det "ikke er så farlig". Når den hvite havisen forsvinner, blottlegges det mørke havet under. Havet har mye lavere albedo og absorberer langt mer solinnstråling, noe som akselererer oppvarmingen (en positiv tilbakekoblingsmekanisme).</li>
+                    <li><strong>Abel:</strong> Har helt rett. Fastlandsis ligger oppå et kontinent. Når denne smelter og renner ut i havet, tilføres det nytt vann til havbassenget, noe som fører direkte til en global havnivåstigning.</li>
+                    <li><strong>Emilija:</strong> Har helt rett. Problemet med smeltende fastlandsis omfatter også dramatiske endringer i jordas totale albedo, endringer i havstrømmer pga. tilførsel av store mengder ferskvann, samt tap av viktige økosystemer.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 7 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 7: Solinnstråling på månen</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Vis at innstrålingstettheten på månen er 1369 W/m²</div>
+            <div class="solution">
+                Solas totale effekt fordeles over en kuleflate med radius lik månens avstand til sola:
+                <div class="math-block">
+                    <span class="math">I<sub>M</sub> = P<sub>sol</sub> / (4&pi;r<sup>2</sup>) = 3,85 &middot; 10<sup>26</sup> W / (4 &middot; &pi; &middot; (1,496 &middot; 10<sup>11</sup> m)<sup>2</sup>) = 1369,3 W/m<sup>2</sup> &approx; 1369 W/m<sup>2</sup></span>
+                </div>
+                Verdien er vist (og er tilnærmet identisk med jordas solarkonstant, da avstanden er omtrent lik).
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Bestem månens overflatetemperatur ved strålingsbalanse</div>
+            <div class="solution">
+                Vi bruker samme balansemodell som for jorda, med månens albedo (<span class="math">&alpha; = 0,136</span>):
+                <div class="math-block">
+                    <span class="math">I<sub>M</sub>(1 - &alpha;) = 4 &middot; &sigma;T<sup>4</sup></span>
+                </div>
+                <div class="math-block">
+                    <span class="math">1369 &middot; (1 - 0,136) = 4 &middot; (5,67 &middot; 10
+                    <sup>-8</sup>) &middot; T<sup>4</sup></span>
+                </div>
+                <div class="math-block">
+                    <span class="math">1182,8 = 2,268 &middot; 10<sup>-7</sup> &middot; T<sup>4</sup> &rArr; T<sup>4</sup> = 5,215 &middot; 10<sup>9</sup> &rArr; T = 268,6 K &approx; -4,5 &deg;C</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Vurdering av temperaturvariasjonene på månen</div>
+            <div class="solution">
+                Modellen i oppgave b) forutsetter en perfekt, umiddelbar varmefordeling over hele månens overflate. I virkeligheten har månen <strong>ingen atmosfære eller hav</strong> som kan transportere varmeenergi via konveksjon eller strømninger. I tillegg roterer månen ekstremt sakte (én rotasjon tar ca. 29,5 jorddøgn). Dette gjør at dagsiden bakes i kontinuerlig sollys over lang tid og når opp i <span class="math">+130 &deg;C</span>, mens nattsiden stråler varme uhindret ut i det tomme verdensrommet uten noen atmosfærisk drivhuseffekt til å holde på energien, slik at temperaturen synker til <span class="math">-150 &deg;C</span>. Jorda opplever ikke disse ekstreme svingningene fordi vår tykke atmosfære og de globale havstrømmene effektivt lagrer, transporterer og jevner ut temperaturforskjellene.
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 8 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 8: Rullebrett-kollisjon i sirkulær rampe</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Vis at Ameena får farten v<sub>A</sub> = &radic;(2gR) i bunnen</div>
+            <div class="solution">
+                Vi bruker bevaring av mekanisk energi. På toppen av rampen har Ameena kun potensiell energi (<span class="math">E<sub>p</sub> = m<sub>A</sub>gR</span>), og i bunnen har all denne gått over til kinetisk energi (<span class="math">E<sub>k</sub> = &frac12;m<sub>A</sub>v<sub>A</sub><sup>2</sup></span>):
+                <div class="math-block">
+                    <span class="math">m<sub>A</sub>gR = &frac12;m<sub>A</sub>v<sub>A</sub><sup>2</sup></span>
+                </div>
+                Vi forkorter bort massen <span class="math">m<sub>A</sub></span> og løser for farten:
+                <div class="math-block">
+                    <span class="math">v<sub>A</sub><sup>2</sup> = 2gR &rArr; v<sub>A</sub> = &radic;(2gR)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Vis at fellesfarten etter kollisjonen er u = &frac25;v<sub>A</sub></div>
+            <div class="solution">
+                Kollisjonen er fullstendig uelastisk siden de henger sammen etterpå. Bevegelsesmengden (<span class="math">p</span>) er bevart i støtet:
+                <div class="math-block">
+                    <span class="math">p<sub>før</sub> = p<sub>etter</sub> &rArr; m<sub>A</sub> &middot; v<sub>A</sub> + 0 = (m<sub>A</sub> + m<sub>B</sub>) &middot; u</span>
+                </div>
+                Vi vet at Bendiks masse er oppgitt til å være en brøk av Ameenas, her korrigert til det fysisk korrekte uttrykket <span class="math">m<sub>B</sub> = &frac32;m<sub>A</sub> = 1,5m<sub>A</sub></span>. Den samlede massen blir da <span class="math">m<sub>A</sub> + 1,5m<sub>A</sub> = 2,5m<sub>A</sub> = &frac52;m<sub>A</sub></span>.
+                <br>
+                Innsatt i ligningen:
+                <div class="math-block">
+                    <span class="math">m<sub>A</sub> &middot; v<sub>A</sub> = &frac52;m<sub>A</sub> &middot; u &rArr; u = &frac25;v<sub>A</sub></span>
+                </div>
+                Dette stemmer med påstanden.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Kinetisk energi etter støtet og energitap i prosent</div>
+            <div class="solution">
+                Ameenas kinetiske energi rett før støtet er <span class="math">E<sub>A</sub> = &frac12;m<sub>A</sub>v<sub>A</sub><sup>2</sup></span>.
+                <br>
+                Den samlede kinetiske energien etter støtet er:
+                <div class="math-block">
+                    <span class="math">E<sub>k,etter</sub> = &frac12;(m<sub>A</sub> + m<sub>B</sub>)u<sup>2</sup> = &frac12; &middot; (2,5m<sub>A</sub>) &middot; (&frac25;v<sub>A</sub>)<sup>2</sup></span>
+                </div>
+                <div class="math-block">
+                    <span class="math">E<sub>k,etter</sub> = &frac12; &middot; (&frac52;m<sub>A</sub>) &middot; (&frac4{25}v<sub>A</sub><sup>2</sup>) = &frac12;m<sub>A</sub>v<sub>A</sub><sup>2</sup> &middot; (&frac52; &middot; &frac4{25}) = E<sub>A</sub> &middot; &frac25; = 0,40E<sub>A</sub></span>
+                </div>
+                Den kinetiske energien etter støtet er altså <span class="math"><strong>0,40 E_A</strong></span> (eller 40 % av den opprinnelige energien).
+                <br>
+                Energitapet utgjør dermed: <span class="math">100 % - 40 % = <strong>60 %</strong></span>.
+                <br>
+                <strong>Hvor har energien blitt av?</strong> De tapte 60 % av den kinetiske energien har gått med til deformasjonsarbeid under kollisjonen, og har blitt omdannet til termisk energi (varme i hjul, brett og klær) og litt lydenergi.
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 9 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 9: Tennisball med luftmotstand (Numerisk modell)</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Krefter før terminalfart</div>
+            <div class="solution">
+                <strong>Figurbeskrivelse:</strong> Ballen faller nedover, så luftmotstanden (<span class="math">L</span>) virker loddrett oppover. Tyngdekraften (<span class="math">G</span>) virker loddrett nedover. Siden den ikke har nådd terminalfart ennå, er ballen under akselerasjon nedover, og pilen for <span class="math">G</span> må tegnes tydelig <strong>lengre</strong> enn pilen for <span class="math">L</span>.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Vis at akselerasjonen er a = (k/m)v² - g (positiv retning oppover)</div>
+            <div class="solution">
+                Når positiv retning er definert oppover, blir tyngdekraften negativ: <span class="math">G = -mg</span>. Siden ballen faller nedover, har farten <span class="math">v</span> et negativt fortegn. Luftmotstanden virker oppover (i positiv retning), og formelen <span class="math">L = kv<sup>2</sup></span> gir et positivt bidrag uansett fortegn på <span class="math">v</span> pga. andrepotensen.
+                <br>
+                Newtons 2. lov gir:
+                <div class="math-block">
+                    <span class="math">&Sigma;F = ma &rArr; L - mg = ma &rArr; kv<sup>2</sup> - mg = ma</span>
+                </div>
+                Vi dividerer med massen <span class="math">m</span> på begge sider:
+                <div class="math-block">
+                    <span class="math">a = (k/m)v<sup>2</sup> - g</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Fullstendig Python-program (Eulers metode)</div>
+            <div class="solution">
+                Her er de fullstendige linjene som fullfører koden for den numeriske iterasjonen:
+                <pre>import numpy as np
+import matplotlib.pyplot as plt
+
+m = 0.058        # Ballens masse i kg
+k = 0.0050       # Luftmotstandskoeffisient i kg/m
+g = 9.81         # Tyngdeakselerasjon i m/s^2
+v_0 = 0.0        # Starter fra ro
+s_0 = 10.0       # Starter fra 10 meters høyde
+t_0 = 0.0        # Starttidspunkt
+
+dt = 0.01 #s
+n = 100
+
+a = np.zeros(n)
+v = np.zeros(n)
+s = np.zeros(n)
+t = np.zeros(n)
+
+a[0] = -g
+v[0] = v_0
+s[0] = s_0
+t[0] = t_0
+
+for i in range(n-1):
+    a[i+1] = (k/m) * (v[i]**2) - g
+    v[i+1] = v[i] + a[i+1] * dt
+    s[i+1] = s[i] + v[i+1] * dt
+    t[i+1] = t[i] + dt
+
+plt.plot(t, s)
+plt.xlabel('$t$ / s')
+plt.ylabel('$s$ / m')
+plt.grid()
+plt.show()</pre>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Beregn hvor lang tid det tar før ballen treffer bakken</div>
+            <div class="solution">
+                Ved å kjøre programmet og sjekke når posisjonsverdien passerer eller er lik null (<span class="math">s = 0</span>), finner vi at tennisballen bruker nøyaktig <span class="math"><strong>1,5 sekunder</strong></span> på å treffe bakken (avrundet til én desimal). Siden det ikke er luftmotstand i starten, faller den fort de første 10 meterne.
+            </div>
+        </div>
+    </div>
+
+    <!-- Oppgave 10 -->
+    <div class="oppgave-block">
+        <h2>Oppgave 10: Astrofysikk og stjerneutvikling</h2>
+        
+        <div class="sub-question">
+            <div class="sub-title">a) Gjør rede for reaksjonene i proton-proton-kjeden</div>
+            <div class="solution">
+                I stjerner som sola foregår fusjonen hovedsakelig gjennom proton-proton-kjeden. Dette er en trinnvis prosess der fire hydrogenkjerner (enkle protoner) fusjonerer og danner én stabil helium-4 kjerne (<span class="math"><sup>4</sup><sub>2</sub>He</span>). Underveis omdannes to protoner til nøytroner ved utsendelse av to positroner og to nøytrinoer. Siden massen til den endelige heliumkjernen er ørlite mindre enn massen til de fire opprinnelige protonene til sammen (massesvinn), frigjøres denne differansen som ren energi i form av gammastråling i henhold til <span class="math">E = &Delta;mc<sup>2</sup></span>.
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">b) Regn ut overflatetemperaturene uttrykt ved solas overflatetemperatur</div>
+            <div class="solution">
+                <strong>Stjerna Cooper:</strong> Vi bruker Stefan-Boltzmanns lov for utstrålingstetthet (<span class="math">U = &sigma;T<sup>4</sup></span>):
+                <div class="math-block">
+                    <span class="math">T<sub>C</sub> = (U<sub>C</sub> / &sigma;)<sup>1/4</sup> = (1,26 &middot; 10<sup>11</sup> / (5,67 &middot; 10
+                    <sup>-8</sup>))<sup>1/4</sup> = (2,222 &middot; 10<sup>18</sup>)<sup>1/4</sup> = 38622 K</span>
+                </div>
+                Uttrykt ved <span class="math">T<sub>&odot;</sub> = 5800 K</span>:
+                <div class="math-block">
+                    <span class="math">T<sub>C</sub> = 38622 / 5800 &middot; T<sub>&odot;</sub> &approx; 6,66 T<sub>&odot;</sub></span>
+                </div>
+                <strong>Stjerna Gaga:</strong> Vi bruker Wiens forskyvningslov (<span class="math">&lambda;<sub>topp</sub> &middot; T = a</span>) der <span class="math">a = 2,90 &middot; 10<sup>-3</sup> m&middot;K</span>:
+                <div class="math-block">
+                    <span class="math">T<sub>G</sub> = a / &lambda;<sub>topp</sub> = (2,90 &middot; 10<sup>-3</sup> m&middot;K) / (955 &middot; 10<sup>-9</sup> m) = 3037 K</span>
+                </div>
+                Uttrykt ved <span class="math">T<sub>&odot;</sub></span>:
+                <div class="math-block">
+                    <span class="math">T<sub>G</sub> = 3037 / 5800 &middot; T<sub>&odot;</sub> &approx; 0,52 T<sub>&odot;</sub></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">c) Regn ut total utstrålt effekt uttrykt ved solas effekt</div>
+            <div class="solution">
+                <strong>Stjerna Cooper:</strong> Effekten er strålingstetthet ganger overflateareal (<span class="math">P = U &middot; 4&pi;R<sup>2</sup></span>):
+                <div class="math-block">
+                    <span class="math">P<sub>C</sub> = (1,26 &middot; 10<sup>11</sup> W/m<sup>2</sup>) &middot; 4&pi; &middot; (6,96 &middot; 10<sup>9</sup> m)<sup>2</sup> = 7,673 &middot; 10<sup>31</sup> W</span>
+                </div>
+                Målt mot <span class="math">P<sub>&odot;</sub> = 3,850 &middot; 10<sup>26</sup> W</span>:
+                <div class="math-block">
+                    <span class="math">P<sub>C</sub> = 7,673 &middot; 10<sup>31</sup> / (3,850 &middot; 10<sup>26</sup>) &middot; P<sub>&odot;</sub> &approx; 2,0 &middot; 10<sup>5</sup> P<sub>&odot;</sub></span>
+                </div>
+                <strong>Stjerna Gaga:</strong> Vi må først regne avstanden i meter: <span class="math">r = 635 ly = 635 &middot; 9,461 &middot; 10<sup>15</sup> m = 6,008 &middot; 10<sup>18</sup> m</span>.
+                <br>
+                Utstrålt effekt finnes via avstandsloven fra målt innstrålingstetthet:
+                <div class="math-block">
+                    <span class="math">P<sub>G</sub> = I &middot; 4&pi;r<sup>2</sup> = (8,4 &middot; 10<sup>-9</sup> W/m<sup>2</sup>) &middot; 4&pi; &middot; (6,008 &middot; 10<sup>18</sup> m)<sup>2</sup> = 3,817 &middot; 10<sup>30</sup> W</span>
+                </div>
+                Målt mot <span class="math">P<sub>&odot;</sub></span>:
+                <div class="math-block">
+                    <span class="math">P<sub>G</sub> = 3,817 &middot; 10<sup>30</sup> / (3,850 &middot; 10<sup>26</sup>) &middot; P<sub>&odot;</sub> &approx; 1,0 &middot; 10<sup>4</sup> P<sub>&odot;</sub></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">d) Plassering i et HR-diagram</div>
+            <div class="solution">
+                Et Hertzsprung-Russell-diagram har overflatetemperaturen på x-aksen (avtagende mot høyre) og utstrålt effekt/luminositet på y-aksen.
+                <ul>
+                    <li><strong>Cooper:</strong> Har ekstremt høy temperatur og veldig høy effekt. Den vil ligge oppe i det <strong>øverste venstre hjørnet</strong>, som betyr at det er en svært massiv, lyssterk <strong>blå kjempe</strong> på hovedserien.</li>
+                    <li><strong>Gaga:</strong> Har lav overflatetemperatur, men svært høy total effekt pga. enorme dimensjoner. Den plasseres oppe i det <strong>øverste høyre hjørnet</strong>, som klassifiserer den som en <strong>rød superkjempe</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sub-question">
+            <div class="sub-title">e) Korte svar på spørsmålene om Cooper</div>
+            <div class="solution">
+                <ol>
+                    <li><strong>På hovedserien:</strong> Det råder en stabil <em>hydrostatisk likevekt</em> i det indre. Tyngdekraften som prøver å presse stjernen sammen, balanseres helt av det utoverrettede gasstrykket og strålingstrykket fra hydrogenfusjonen i kjernen.</li>
+                    <li><strong>Idet den forlater hovedserien:</strong> Hydrogenet i kjernen er oppbrukt, og fusjonen stopper opp midlertidig. Strålingstrykket faller, tyngdekraften tar over, og kjernen begynner å trekke seg sammen (kollapse). Dette øker trykket og temperaturen i og rundt kjernen voldsomt, slik at det tennes skallfusjon av hydrogen, fulgt av heliumfusjon i selve kjernen.</li>
+                    <li><strong>Som superkjempe:</strong> Fusjonsprosessene danner suksessivt tyngre grunnstoffer i konsentriske skall ("løkskallstruktur"). Det innerste elementet det vil finnes mest av til slutt, er <strong>jern (Fe)</strong>.</li>
+                    <li><strong>Etter superkjempefasen:</strong> Siden jern ikke kan fusjonere videre uten å kreve netto energi, opphører all energiproduksjon brått. Tyngdekraften fører til et øyeblikkelig, katastrofalt kjernefysisk kollaps. Stjernens ytre lag blir kastet av i en gigantisk eksplosjon kjent som en <strong>supernova</strong>, mens kjernen presses sammen til en nøytronstjerne eller et <strong>svart hull</strong>.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
